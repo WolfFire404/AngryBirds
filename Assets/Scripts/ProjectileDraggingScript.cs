@@ -4,30 +4,12 @@ using UnityEngine;
 
 public class ProjectileDraggingScript : MonoBehaviour
 {
+    private bool Clicked;
 
-    private Vector2 screenPoint;
-    private Vector2 offset;
-
-    /*public float maxStretch = 3.0f;
-    //public LineRenderer Katapult_achterkant;
-    //public LineRenderer Katapult_voorkant;
-
-    private SpringJoint2D spring;
-
-    private void Awake()
+    private void Start()
     {
-        spring = GetComponent<SpringJoint2D>();
+        Clicked = false;
     }
-
-    // Use this for initialization
-    void Start () {
-        //joint = GetComponent<HingeJoint>();
-    }
-	
-	// Update is called once per frame
-	void Update () {
-        //joint.breakForce = 10;
-    }*/
 
     void Update()
     {
@@ -36,10 +18,12 @@ public class ProjectileDraggingScript : MonoBehaviour
             Debug.Log("I'm down");
             Vector2 pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
             transform.position = (pos);
+            Clicked = true;
         }
-        else
+        else if (Clicked)
         {
             Debug.Log("I'm up");
+            GetComponent<SpringJoint2D>().enabled = false;
         }
     }
 
