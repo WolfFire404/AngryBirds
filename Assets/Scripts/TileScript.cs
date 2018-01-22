@@ -28,7 +28,7 @@ public class TileScript : MonoBehaviour {
         {
            TileHealth -=3f;
         }
-        Debug.Log(collision.relativeVelocity.magnitude);
+        //Debug.Log(collision.relativeVelocity.magnitude);
     }
 
     // Update is called once per frame

@@ -29,11 +29,18 @@ public class ProjectileDraggingScript : MonoBehaviour
         //joint.breakForce = 10;
     }*/
 
-    void OnMouseDown()
+    void Update()
     {
-        Debug.Log("I'm down");
-        Vector2 pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        transform.position = (pos);
+        if (Input.GetMouseButton(0))
+        {
+            Debug.Log("I'm down");
+            Vector2 pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+            transform.position = (pos);
+        }
+        else
+        {
+            Debug.Log("I'm up");
+        }
     }
 
 }
