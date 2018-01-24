@@ -17,17 +17,17 @@ public class TileScript : MonoBehaviour {
 
         void OnCollisionEnter2D(Collision2D collision)
         {
-            if (collision.relativeVelocity.magnitude < 6 && collision.relativeVelocity.magnitude > 3)
+            if (collision.relativeVelocity.magnitude < 8 && collision.relativeVelocity.magnitude > 3)
             {
                 TileHealth -= 1f;
             }
 
-            else if (collision.relativeVelocity.magnitude < 10 && collision.relativeVelocity.magnitude > 7)
+            else if (collision.relativeVelocity.magnitude < 15 && collision.relativeVelocity.magnitude > 8)
             {
                 TileHealth -= 2f;
             }
 
-            else if (collision.relativeVelocity.magnitude > 10)
+            else if (collision.relativeVelocity.magnitude > 15)
             {
                 TileHealth -= 3f;
             }
