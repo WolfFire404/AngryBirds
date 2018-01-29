@@ -5,39 +5,42 @@ using UnityEngine;
 public class TileScript : MonoBehaviour {
 
 
-    public float TileHealth = 3f;
+
+    public float TileHealth = 4f;
+
 
     // Use this for initialization
-    void Start () {
-        
-    }
-
-    void OnCollisionEnter2D(Collision2D collision)
-    {
-        if (collision.relativeVelocity.magnitude < 5 && collision.relativeVelocity.magnitude > 3)
+    void Start()
         {
-            TileHealth -=1f;
+            
         }
 
-        else if (collision.relativeVelocity.magnitude < 7 && collision.relativeVelocity.magnitude > 5)
+        void OnCollisionEnter2D(Collision2D collision)
         {
-           TileHealth -=2f;
+            if (collision.relativeVelocity.magnitude < 8 && collision.relativeVelocity.magnitude > 3)
+            {
+                TileHealth -= 1f;
+            }
+
+            else if (collision.relativeVelocity.magnitude < 15 && collision.relativeVelocity.magnitude > 8)
+            {
+                TileHealth -= 2f;
+            }
+
+            else if (collision.relativeVelocity.magnitude > 15)
+            {
+                TileHealth -= 3f;
+            }
+            Debug.Log(collision.relativeVelocity.magnitude);
         }
 
-        else if (collision.relativeVelocity.magnitude > 7)
+        // Update is called once per frame
+        void Update()
         {
-           TileHealth -=3f;
+            //Debug.Log(TileHealth);
+            if (TileHealth < 1f)
+            {
+                Destroy(gameObject);
+            }
         }
-        //Debug.Log(collision.relativeVelocity.magnitude);
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        //Debug.Log(TileHealth);
-        if(TileHealth < 1f)
-        {
-            Destroy(gameObject);
-        }
-    }
 }
