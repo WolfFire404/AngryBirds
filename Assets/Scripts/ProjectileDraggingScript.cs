@@ -5,31 +5,35 @@ using UnityEngine;
 public class ProjectileDraggingScript : MonoBehaviour
 {
     private bool Clicked;
-    private bool BeenShot;
+    public bool BeenShot;
+    private bool IsSelected;
 
     private void Start()
     {
         Clicked = false;
         BeenShot = false;
+        IsSelected = false;
     }
 
     void Update()
     {
-        if (!BeenShot)
+        if (!IsSelected)
         {
-            if (Input.GetMouseButton(0))
+            if (!BeenShot)
             {
-                Vector2 pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-                transform.position = (pos);
-                Clicked = true;
-            }else if (Clicked)
-            {
-                GetComponent<SpringJoint2D>().enabled = false;
-                Clicked = false;
-                BeenShot = true;
+                if (Input.GetMouseButton(0))
+                {
+                    Vector2 pos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
+                    transform.position = (pos);
+                    Clicked = true;
+                }
+                else if (Clicked)
+                {
+                    GetComponent<SpringJoint2D>().enabled = false;
+                    Clicked = false;
+                    BeenShot = true;
+                }
             }
         }
-        
     }
-
 }
