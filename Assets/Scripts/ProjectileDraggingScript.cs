@@ -7,6 +7,7 @@ public class ProjectileDraggingScript : MonoBehaviour
     private bool Clicked;
     public bool BeenShot;
     private bool IsSelected;
+    public bool freezeRotation;
 
     private void Start()
     {
@@ -33,6 +34,11 @@ public class ProjectileDraggingScript : MonoBehaviour
                     Clicked = false;
                     BeenShot = true;
                 }
+            }
+            else
+            {
+                //UnFreeze rigidbody rotation
+
             }
         }
     }
