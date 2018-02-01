@@ -24,13 +24,19 @@ public class Follow_Player : MonoBehaviour {
     // Use this for initialization
     void Start () 
 	{
-        
+        offset = transform.position - Sphere.transform.position;
+        projectiledraggingscript = GameObject.FindGameObjectWithTag("Player").GetComponent<ProjectileDraggingScript>();
     }
 
 	// LateUpdate is called after Update each frame
 	void Update () 
 	{
             //Calculate and store the offset value by getting the distance between the player's position and camera's position.
-            offset = transform.position - Sphere.transform.position;
+        if(projectiledraggingscript.BeenShot)
+        {
+           // Debug.Log("Oh Fuck Off");
+            transform.position = Sphere.transform.position + offset;
+        }
+            
     }
 }
