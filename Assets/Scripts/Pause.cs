@@ -1,12 +1,13 @@
-﻿using System.Collections;
+﻿
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
 
-public class PauseScript : MonoBehaviour {
+public class Pause : MonoBehaviour {
 	public Transform pause_Canvas;
 	public Transform Buttons;
-		//public Transform Player;
+	//public Transform Player;
 
 	// Update is called once per frame
 	void Update () {
@@ -28,7 +29,7 @@ public class PauseScript : MonoBehaviour {
 		} else {
 			pause_Canvas.gameObject.SetActive (false);
 			Time.timeScale = 1;
-	
+
 		}
 	}
-	}
+}
